@@ -1,6 +1,9 @@
 # PawPal+ Project Reflection
 
 ## 1. System Design
+1. Add and manage pet care tasks: The user should be able to create tasks such as feeding, walking, giving medication, grooming, or playtime. Each task should include details like duration, priority, and possibly a preferred time.
+2. Generate a daily care schedule: The user should be able to ask the app to create a plan for the day based on the pet’s needs, the task priorities, the owner’s available time, and any preferences or constraints.
+3. View and understand the final plan: The user should be able to see the ordered schedule clearly and understand why each task was included, such as because it was high priority, time-sensitive, or matched the owner’s available time.
 
 **a. Initial design**
 
