@@ -1,4 +1,12 @@
 import streamlit as st
+from pawpal_system import Owner, Pet, Task, Scheduler
+
+if "owner" not in st.session_state:
+    st.session_state.owner = Owner(name="Jordan", available_time=120)
+
+if "pet" not in st.session_state:
+    st.session_state.pet = Pet(name="Mochi", species="dog", age=1)
+    st.session_state.owner.add_pet(st.session_state.pet)
 
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 
@@ -43,6 +51,10 @@ owner_name = st.text_input("Owner name", value="Jordan")
 pet_name = st.text_input("Pet name", value="Mochi")
 species = st.selectbox("Species", ["dog", "cat", "other"])
 
+st.session_state.owner.name = owner_name
+st.session_state.pet.name = pet_name
+st.session_state.pet.species = species
+
 st.markdown("### Tasks")
 st.caption("Add a few tasks. In your final version, these should feed into your scheduler.")
 
@@ -58,6 +70,14 @@ with col3:
     priority = st.selectbox("Priority", ["low", "medium", "high"], index=2)
 
 if st.button("Add task"):
+    new_task = Task(
+        title=task_title,
+        duration_minutes=int(duration),
+        priority=priority,
+        category="general",
+        preferred_time="morning"
+    )
+    st.session_state.pet.add_task(new_task)
     st.session_state.tasks.append(
         {"title": task_title, "duration_minutes": int(duration), "priority": priority}
     )
@@ -74,9 +94,34 @@ st.subheader("Build Schedule")
 st.caption("This button should call your scheduling logic once you implement it.")
 
 if st.button("Generate schedule"):
-    st.warning(
-        "Not implemented yet. Next step: create your scheduling logic (classes/functions) and call it here."
-    )
+    scheduler = Scheduler(st.session_state.owner)
+    schedule = scheduler.build_schedule()
+    explanations = scheduler.explain_schedule(schedule)
+
+    if schedule:
+        st.success("Schedule generated successfully.")
+
+        schedule_data = []
+        for task in schedule:
+            schedule_data.append(
+                {
+                    "title": task.title,
+                    "duration_minutes": task.duration_minutes,
+                    "priority": task.priority,
+                    "category": task.category,
+                    "preferred_time": task.preferred_time,
+                }
+            )
+
+        st.write("Generated Schedule:")
+        st.table(schedule_data)
+
+        st.write("Why these tasks were chosen:")
+        for explanation in explanations:
+            st.write(f"- {explanation}")
+    else:
+        st.warning("No tasks fit within the available time.")
+
     st.markdown(
         """
 Suggested approach:

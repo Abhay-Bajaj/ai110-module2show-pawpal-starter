@@ -27,10 +27,14 @@ Yes, my design changed slightly during implementation. I updated the Scheduler c
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
 
+My scheduler considers constraints like available time, task priority, and preferred time of day. I prioritized task importance and available time the most, since high priority tasks should be completed first and everything must fit within the owner’s time.
+
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+
+One tradeoff my scheduler makes is that it only checks for exact time matches like morning or evening instead of tracking detailed overlapping time ranges. This is reasonable because it keeps the scheduling logic simple and still gives the user a helpful warning when tasks may conflict.
 
 ---
 
