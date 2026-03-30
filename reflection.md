@@ -45,10 +45,16 @@ One tradeoff my scheduler makes is that it only checks for exact time matches li
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
 
+I used AI throughout the project for brainstorming design ideas, writing class structures, and implementing specific features like sorting, filtering, and recurring tasks. It was especially helpful when I needed to translate an idea into actual code quickly. The most helpful prompts were specific ones, like asking how to sort tasks by time or how to use timedelta for recurring tasks. Asking focused questions gave better and more usable answers.
+
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
+
+One moment where I did not accept an AI suggestion as-is was during the UML design phase. My initial UML was simpler and did not include newer features like recurring tasks, conflict detection, or additional scheduler methods. After implementing the code, I had to go back and compare my UML with the actual pawpal_system.py file. I realized that several methods and attributes were missing, so I updated the UML to reflect the final system more accurately.
+
+I also chose not to follow some AI suggestions that added unnecessary complexity, like more detailed time tracking. I evaluated the suggestions by checking if they matched the project requirements and by making sure the design stayed simple and readable. This process helped me verify that both my code and system design were consistent and correct.
 
 ---
 
@@ -59,10 +65,14 @@ One tradeoff my scheduler makes is that it only checks for exact time matches li
 - What behaviors did you test?
 - Why were these tests important?
 
+I tested core behaviors such as adding tasks to pets, marking tasks as completed, sorting tasks by time, filtering tasks by status, handling recurring tasks, and detecting conflicts. These tests were important because they covered both the main functionality and edge cases, ensuring that the system behaves correctly under different conditions.
+
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
+
+I am very confident that my scheduler works correctly since all my tests passed successfully. The tests covered both normal cases and edge cases, like tasks with the same time or recurring tasks being created properly. If I had more time, I would test more detailed time conflicts and situations with multiple pets and a large number of tasks.
 
 ---
 
@@ -72,10 +82,16 @@ One tradeoff my scheduler makes is that it only checks for exact time matches li
 
 - What part of this project are you most satisfied with?
 
+The part I am most satisfied with is how the scheduling system came together. The logic for sorting, filtering, recurring tasks, and conflict detection all work together smoothly and are easy to understand.
+
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
 
+If I had another iteration, I would improve how time is handled by using actual timestamps instead of general labels like morning or evening. I would also improve the UI to make it more interactive and allow users to manage multiple pets more easily.
+
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+
+One important thing I learned is that even when using AI, I still need to act as the lead architect. AI can generate code quickly, but it is my responsibility to decide what makes sense for the project, keep the design simple, and make sure everything works together properly.
