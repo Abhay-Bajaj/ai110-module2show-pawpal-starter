@@ -57,4 +57,33 @@ To run the automated tests, use:
 ```bash
 python -m pytest
 
+```
 
+## Features
+
+- **Task Management**  
+  Add and track pet care tasks with duration, priority, category, and preferred time.
+
+- **Smart Scheduling**  
+  Automatically builds a daily plan based on available time and task priority.
+
+- **Sorting by Time**  
+  Tasks are ordered by time of day (morning, afternoon, evening) for a realistic schedule.
+
+- **Filtering**  
+  Filter tasks by completion status or by pet.
+
+- **Recurring Tasks**  
+  Daily and weekly tasks automatically generate the next occurrence when completed.
+
+- **Conflict Detection**  
+  Detects when multiple tasks are scheduled at the same time and shows warning messages.
+
+- **Schedule Explanation**  
+  Explains why each task was selected in the final plan.
+
+  ## 📸 Demo
+
+<a href="/course_images/ai110/pawpal_demo.png" target="_blank">
+  <img src='/course_images/ai110/pawpal_demo.png' title='PawPal App' width='' alt='PawPal App' class='center-block' />
+</a>
